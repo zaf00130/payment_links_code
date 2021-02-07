@@ -21,13 +21,13 @@
         <div class="sr-container">
           <section class="container">
             <h1>One-time Donation</h1>
-            <button data-sku-id="sku_GU4JYXyvvRb2sX">Donate $5.00 once</button>
-            <button data-sku-id="sku_GU4KO8nfdg8G2Z">Donate $15.00 once</button>
-            <button data-sku-id="sku_GU4LB0wBViiYsm">Donate $50.00 once</button>
+            <button data-price-id="price_1IGdFgCDUwY4gIQi7iXdrXyH">Donate $5.00 once</button>
+            <button data-price-id="price_1IGdFgCDUwY4gIQiw1OOaABZ">Donate $10.00 once</button>
+            <button data-price-id="price_1IGdFhCDUwY4gIQiS24RfPKG">Donate $50.00 once</button>
           </section>
           <section class="container">
             <h1>Recurring Donation</h1>
-            <button data-plan-id="plan_GU4MXg0k0Uv1S6">
+            <button data-price-id="price_1II4DlCDUwY4gIQi42O0nc2F">
               Donate $20.00 per month
             </button>
           </section>
@@ -72,11 +72,9 @@
 
       document.querySelectorAll("button").forEach(function(button) {
         button.addEventListener("click", function(e) {
-          var skuId = e.target.dataset.skuId;
-          var planId = e.target.dataset.planId;
-          var items = skuId
-            ? [{ sku: skuId, quantity: 1 }]
-            : [{ plan: planId, quantity: 1 }];
+          var priceId = e.target.dataset.priceId;
+          var items = priceId
+            ? [{ price: priceId, quantity: 1 }];
 
           // Make the call to Stripe.js to redirect to the checkout page
           // with the sku or plan ID.
