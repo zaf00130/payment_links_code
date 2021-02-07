@@ -73,14 +73,14 @@
       document.querySelectorAll("button").forEach(function(button) {
         button.addEventListener("click", function(e) {
           var priceId = e.target.dataset.priceId;
-          var items = priceId
+          var lineItems = priceId
             ? [{ price: priceId, quantity: 1 }];
 
           // Make the call to Stripe.js to redirect to the checkout page
           // with the sku or plan ID.
           stripe
             .redirectToCheckout({
-              items: items,
+              lineItems: lineItems,
               successUrl:
                 DOMAIN + "success.html?session_id={CHECKOUT_SESSION_ID}",
               cancelUrl:
